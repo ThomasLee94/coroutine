@@ -1,7 +1,7 @@
 from req_handler import bar_handle
 from aiohttp import web
 
-# Coroutine 
+# Coroutine 1
 app = web.Application()
 app.add_routes([web.get('/bar', bar_handle)])
 
