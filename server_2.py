@@ -1,11 +1,9 @@
-import asyncio
-from flask import Flask
+from req_handler import bar_handle
+from aiohttp import web
 
-server = Flask(__name__)
+# Coroutine 
+app = web.Application()
+app.add_routes([web.get('/bar', bar_handle)])
 
-# Coroutine 2
-@server.route("/bar")
-async def run():
-    await output = requests.get("/bar")
-    if output:
-       return "I am bar" 
+if __name__ == '__main__':
+    web.run_app(app)
