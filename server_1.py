@@ -1,11 +1,6 @@
-import asyncio
-from flask import Flask
-from flask_api import status
-
+from req_handler import foo_handle
 from aiohttp import web
-
-async def hello(request):
-        return web.Response(text="Hello, world")
+from flask_api import status
 
 asyincio.run(main())
 server = Flask(__name__)
