@@ -8,9 +8,11 @@ async def foo_handle(request):
 
 
 async def bar_handle(request):
-    output = await web.get('foo', foo_handle)
-    if output:
-        return web.Response(text="I am bar")
+    # data = await request.query.get('foo')
+    data = await foo_handle(request)
+    print(data)
+    if data:
+        return web.Response(text=data)
 
 # web app instance
 app = web.Application()
@@ -19,3 +21,5 @@ app.router.add_get('/bar', bar_handle)
 
 # run app
 web.run_app(app)
+
+# bar?foo=bar
